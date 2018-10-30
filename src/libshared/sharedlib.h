@@ -1,3 +1,5 @@
 #pragma once
 
-void TestSharedMethod();
+#include "shared_exports.h"
+
+void SHARED_EXPORTS TestSharedMethod();
