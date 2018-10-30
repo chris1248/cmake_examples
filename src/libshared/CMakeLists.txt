@@ -1,4 +1,5 @@
-
+# Output the .DLL,*.ILK,*.PDB file to a different location than the .lib, .exp files
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${EXECUTABLE_OUTPUT_PATH})
 add_library(SharedLib SHARED sharedlib.cpp shared_exports.h)
 
 target_include_directories(SharedLib PUBLIC ${PROJECT_SOURCE_DIR}/src/libshared)
@@ -9,8 +10,3 @@ include(GenerateExportHeader)
 GENERATE_EXPORT_HEADER(SharedLib
     EXPORT_MACRO_NAME SHARED_EXPORTS
     EXPORT_FILE_NAME ${PROJECT_SOURCE_DIR}/src/libshared/shared_exports.h)
-
-# Output the .DLL,*.ILK,*.PDB file to a different location than the .lib, .exp files
-set_target_properties(SharedLib PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY ${EXECUTABLE_OUTPUT_PATH}
-)  
