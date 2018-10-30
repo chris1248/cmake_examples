@@ -5,12 +5,16 @@ cmake_minimum_required(VERSION 3.13)
 # Project's name
 project(test)
 
+# --------------------------------------------------------
 # Set the output folder where your program will be created
 set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
+# Set the path where the *.EXE gets output to
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
-set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
+# Set the path where any library files (*.libs)
+set(LIBRARY_OUTPUT_PATH    ${CMAKE_BINARY_DIR}/lib)
+# --------------------------------------------------------
 
-# The following folder will be included
-include_directories("${PROJECT_SOURCE_DIR}/src")
-
-add_executable(hello ${PROJECT_SOURCE_DIR}/src/test.cpp ${PROJECT_SOURCE_DIR}/src/lib/MathStuff.cpp)
+# Each of these sub-directories is expected to have a CMakeLists.txt file in it.
+add_subdirectory(src/lib)
+add_subdirectory(src/libshared)
+add_subdirectory(src/main)

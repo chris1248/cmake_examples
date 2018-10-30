@@ -2,7 +2,8 @@
 
 #include <iostream>
 
-#include "lib/MathStuff.h"
+#include <MathStuff.h>
+#include <sharedlib.h>
 
 using namespace std;
 
@@ -14,8 +15,9 @@ int main(void) {
      cin >> val;
      cout << "You entered the value: " << val << endl;
      unsigned int factorial = Factorial(val);
-
      cout << "Factorial: " << factorial << endl;
+
+     TestSharedMethod();
 
      return(0);
 
