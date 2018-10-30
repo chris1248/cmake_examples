@@ -13,4 +13,4 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
 # The following folder will be included
 include_directories("${PROJECT_SOURCE_DIR}/src")
 
-add_executable(hello ${PROJECT_SOURCE_DIR}/src/test.cpp)
+add_executable(hello ${PROJECT_SOURCE_DIR}/src/test.cpp ${PROJECT_SOURCE_DIR}/src/lib/MathStuff.cpp)
