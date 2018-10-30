@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include "lib/MathStuff.h"
+
 using namespace std;
 
 int main(void) {
