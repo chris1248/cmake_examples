@@ -1,3 +1,4 @@
 bin/CMakeFiles/
 bin/Debug/
 bin/lib/
+src/libshared/shared_exports.h
