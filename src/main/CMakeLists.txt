@@ -6,5 +6,5 @@ target_link_libraries(hello MathLibrary)
 target_link_libraries(hello SharedLib)
 
 # Tell CMake where to look for the .h files
-target_include_directories(hello PUBLIC ${CMAKE_SOURCE_DIR}/src/lib)
+target_include_directories(hello PUBLIC ${CMAKE_SOURCE_DIR}/src/libstatic)
 target_include_directories(hello PUBLIC ${CMAKE_SOURCE_DIR}/src/libshared)

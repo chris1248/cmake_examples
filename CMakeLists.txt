@@ -15,6 +15,6 @@ set(LIBRARY_OUTPUT_PATH    ${CMAKE_BINARY_DIR}/lib)
 # --------------------------------------------------------
 
 # Each of these sub-directories is expected to have a CMakeLists.txt file in it.
-add_subdirectory(src/lib)
+add_subdirectory(src/libstatic)
 add_subdirectory(src/libshared)
 add_subdirectory(src/main)
