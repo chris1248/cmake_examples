@@ -1,3 +1,3 @@
 #pragma once
 
-int Factorial(int val);
+unsigned  Factorial(unsigned  val);

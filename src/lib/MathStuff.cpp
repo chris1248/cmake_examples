@@ -1,6 +1,6 @@
 #include "MathStuff.h"
 
-int Factorial(int val)
+unsigned  Factorial(unsigned  val)
 {
     if (val == 1)
     {
