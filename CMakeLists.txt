@@ -7,7 +7,7 @@ project(test)
 # --------------------------------------------------------
 # Set the path where the *.EXE gets output to
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/exe)
-# Set the path where any library files (*.libs)
+# Set the path for all library files (*.libs)
 set(LIBRARY_OUTPUT_PATH    ${CMAKE_SOURCE_DIR}/bin/lib)
 # --------------------------------------------------------
 
