@@ -1,2 +1,2 @@
 
-add_library(MathLibrary MathStuff.cpp)
+add_library(StaticLib MathStuff.cpp)

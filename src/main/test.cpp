@@ -18,7 +18,8 @@ int main(void) {
      cout << "Factorial: " << factorial << endl;
 
      TestSharedMethod();
-
+     char* msg = GetString();
+     printf("str1: %s\n", msg);
+     delete msg;
      return(0);
-
 }

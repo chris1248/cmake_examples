@@ -1,3 +1,4 @@
 #pragma once
-
-unsigned  Factorial(unsigned  val);
+extern "C" {
+    unsigned long  Factorial(unsigned long val);
+}

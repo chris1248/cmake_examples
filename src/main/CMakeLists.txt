@@ -2,7 +2,7 @@
 # Calls to link_libraries MUST be called BEFORE the call to add_executable. 
 # If you want to specify a library to link after calling add_executable, then 
 # you need to call target_link_libraries.
-link_libraries(MathLibrary)
+link_libraries(StaticLib)
 link_libraries(SharedLib)
 
 # Tell CMake where to look for the .h files

@@ -2,7 +2,7 @@
 # This MUST come before the call to add_library in order to work.
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${EXECUTABLE_OUTPUT_PATH})
 # The all important declaration to create a library!
-add_library(SharedLib SHARED sharedlib.cpp shared_exports.h)
+add_library(SharedLib SHARED sharedlib.cpp shared_exports.h data.cpp )
 
 # In Microsoft build systems, a shared DLL will not create a .lib file unless there
 # are actually functions (etc) that get exported. 
