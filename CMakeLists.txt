@@ -34,5 +34,5 @@ add_subdirectory(src/main)
 # These instructions will direct cmake to create the file bin/CMakeFiles/INSTALL.vcxproj.
 # To get cmake to actually copy the file over, or to invoke the 'install' target -- call cmake with 
 # the '--target install' option.
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/bin/exe/${CONFIG} DESTINATION ${CMAKE_SOURCE_DIR}/bin/install/exe/${CONFIG})
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/bin/exe/${CMAKE_BUILD_TYPE} DESTINATION ${CMAKE_SOURCE_DIR}/bin/install/exe/${CMAKE_BUILD_TYPE})
 install(FILES ${CMAKE_SOURCE_DIR}/src/libshared/sharedlib.h DESTINATION ${CMAKE_SOURCE_DIR}/bin/install/include)
