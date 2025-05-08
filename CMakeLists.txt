@@ -4,8 +4,13 @@ cmake_minimum_required(VERSION 3.12.3)
 # Project's name
 project(test)
 
-add_compile_definitions($<$<CONFIG:Debug>:DEBUGGING>)
-add_compile_definitions($<$<CONFIG:Release>:NDEBUG>)
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D NDEBUG")
+endif()
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D DEBUGGING")
+endif()
+
 # Set the C++ standard to be used
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

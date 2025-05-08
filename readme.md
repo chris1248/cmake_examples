@@ -19,6 +19,6 @@ This creates one simple console executable, that consumes two libraries:
 
 1. Invoke `cmake -S . -B bin/CMakeFiles`
 2. Change to the cmake directory: `cd bin/CMakeFiles`.
-3. Use either of these two methods to build the program executables:
-    a. Invoke Make to build the program executables: `make all`. 
-    b. Let CMake do it for you: `cmake --build .`
+3. Use either of these two methods to build the program executables:  
+    a. Invoke Make to build the program executables: `make all`.  
+    b. Let CMake do it for you: `cmake --build .`  
