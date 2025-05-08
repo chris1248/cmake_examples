@@ -11,3 +11,13 @@ unsigned  Factorial(unsigned  val)
         return Factorial(val - 1) * val;
     }
 }
+
+double GetPi()
+{
+    return 3.141592653589793;
+}
+
+double MultiplyDoubles(double a, double b)
+{
+    return a * b;
+}
