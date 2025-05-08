@@ -1,4 +1,4 @@
-#include "MathStuff.h"
+#include "staticlib.h"
 
 unsigned  Factorial(unsigned  val)
 {

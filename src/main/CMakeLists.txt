@@ -13,4 +13,10 @@ include_directories(PUBLIC ${CMAKE_SOURCE_DIR}/src/libstatic)
 include_directories(PUBLIC ${CMAKE_SOURCE_DIR}/src/libshared)
 
 # Name the executable and all resources it depends on directly
-add_executable(hello main.cpp)
+
+set(SOURCES
+    main.cpp
+    utils.cpp
+)
+
+add_executable(hello ${SOURCES})

@@ -5,9 +5,13 @@
 #include <staticlib.h>
 #include <sharedlib.h>
 
+#include "utils.h"
+
 using namespace std;
 
 int main(void) {
+     std::string machine_name = getMachineHostname();
+     cout << "Running on machine: " << machine_name << endl;
 
      cout << "Compute Factorial" << endl;
      cout << "Enter a number: ";
@@ -28,6 +32,19 @@ int main(void) {
 
      cout << "Shared Library Test" << endl;
      TestSharedMethod();
+
+#ifdef DEBUGGING
+     cout << "Debug mode is enabled." << endl;
+     cout << "Run the Shared Libarary Test" << endl;
+     TestSharedMethod();
+#else
+     cout << "Release mode is enabled." << endl;
+     cout << "Show Multiple Doubles again" << endl;
+     double a2 = 4.0;
+     double b2 = 5.0;
+     double result2 = MultiplyDoubles(a2, b2);
+     cout << "MultiplyDoubles: " << result2 << endl;
+#endif
 
      return(0);
 

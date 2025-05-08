@@ -5,7 +5,7 @@
 # Output the .DLL,*.ILK,*.PDB file to a different location than the .lib, .exp files
 # This MUST come before the call to add_library in order to work.
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${EXECUTABLE_OUTPUT_PATH})
-# The all important declaration to create a library!
+# The all important declaration to create a shared library!
 add_library(SharedLibrary SHARED sharedlib.cpp shared_exports.h)
 
 # In Microsoft build systems, a shared DLL will not create a .lib file unless there
