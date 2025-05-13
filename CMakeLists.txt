@@ -1,9 +1,10 @@
 # Specify the minimum version for CMake
-cmake_minimum_required(VERSION 3.12.3)
+cmake_minimum_required(VERSION 3.20.1)
 
 # Project's name
-project(test VERSION 0.1.0 LANGUAGES CXX)
+project(hello VERSION 0.1.0 LANGUAGES CXX)
 
+set(CMAKE_BUILD_TYPE Release)
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D NDEBUG")
 endif()
@@ -39,19 +40,22 @@ add_subdirectory(src/main)
 # These instructions will direct cmake to create the file bin/CMakeFiles/INSTALL.vcxproj.
 # To get cmake to actually copy the file over, or to invoke the 'install' target -- call cmake with 
 # the '--target install' option.
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/bin/exe/${CMAKE_BUILD_TYPE} DESTINATION ${CMAKE_SOURCE_DIR}/bin/install/exe/${CMAKE_BUILD_TYPE})
-install(FILES ${CMAKE_SOURCE_DIR}/src/libshared/sharedlib.h DESTINATION ${CMAKE_SOURCE_DIR}/bin/install/include)
+install(TARGETS hello DESTINATION bin)
+install(TARGETS SharedLibrary
+        RUNTIME DESTINATION bin
+        LIBRARY DESTINATION /usr/lib
+        ARCHIVE DESTINATION lib/helloSharedLib)
 
 
 set(CPACK_GENERATOR DEB)
 
 set(CPACK_PACKAGE_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/packages)
-set(CPACK_PACKAGE_FILE_NAME "test-demo-${PROJECT_VERSION}")
+set(CPACK_PACKAGE_FILE_NAME "hello-${PROJECT_VERSION}")
 set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Chris Johnson")
 
-set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "test-demo shows how a basic example of how to use CMake.")
+set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "hello shows how a basic example of how to use CMake.")
 set(CPACK_DEBIAN_PACKAGE_SECTION "utils")
-set(CPACK_PACKAGE_INSTALL_DIRECTORY "test-demo")
+set(CPACK_PACKAGE_INSTALL_DIRECTORY "hello")
 
 set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 set(CPACK_DEBIAN_PACKAGE_DEBUG ON)
