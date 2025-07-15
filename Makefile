@@ -10,6 +10,11 @@ binaries: generate
 install: binaries	
 	cmake --install build --prefix ${PREFIX_TEST_DIR}
 
+package: binaries
+	cmake --build build --target package
+	echo "-------------------------------------------------------"
+	dpkg-deb --contents bin/packages/hello-0.1.0.deb
+
 clobber-install:
 	rm -rf ${PREFIX_TEST_DIR}
 
