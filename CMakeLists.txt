@@ -39,7 +39,10 @@ add_subdirectory(src/main)
 
 configure_package_config_file(${CMAKE_SOURCE_DIR}/src/hello.cmake.in
     ${CMAKE_SOURCE_DIR}/src/hello.cmake
-    INSTALL_DESTINATION ${LIB_INSTALL_DIR}/hello/cmake)
+    INSTALL_DESTINATION lib/hello/cmake)
+
+install(FILES ${CMAKE_SOURCE_DIR}/src/hello.cmake
+    DESTINATION lib/hello/cmake)
 
 
 set(CPACK_GENERATOR DEB)

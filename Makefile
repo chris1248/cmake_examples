@@ -2,10 +2,10 @@ MAKEFLAGS += --no-print-directory
 PREFIX_TEST_DIR?=${HOME}/Downloads/hello
 
 generate:
-	cmake -S . -B build
+	@cmake -S . -B build
 
 binaries: generate
-	cmake --build build --target all
+	@cmake --build build --target all
 
 install: binaries	
 	cmake --install build --prefix ${PREFIX_TEST_DIR}

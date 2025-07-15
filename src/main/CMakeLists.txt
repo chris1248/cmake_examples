@@ -5,20 +5,14 @@
 link_libraries(StaticLibrary)
 link_libraries(SharedLibrary)
 
-# Tell CMake where to look for the .h files
-# Calls to include_directories MUST be called BEFORE the call to add_executable.
-# If you want to specify an include directory after calling add_executable, then
-# you need to call target_include_directories
-include_directories(PUBLIC ${CMAKE_SOURCE_DIR}/src/libstatic)
-include_directories(PUBLIC ${CMAKE_SOURCE_DIR}/src/libshared)
 
-# Name the executable and all resources it depends on directly
-
+# Name the source files for the executable.
 set(SOURCES
     main.cpp
     utils.cpp
 )
 
+# Name the executable
 add_executable(hello ${SOURCES})
 
 install(TARGETS hello DESTINATION bin)

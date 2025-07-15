@@ -8,6 +8,15 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${EXECUTABLE_OUTPUT_PATH})
 # The all important declaration to create a shared library!
 add_library(SharedLibrary SHARED sharedlib.cpp shared_exports.h)
 
+# Now any target that links to this library will automatically get
+# the include directories added to it.
+# This is the preferred way to do it.
+target_include_directories(SharedLibrary
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
+        $<INSTALL_INTERFACE:include/hello>)
+
+
 # In Microsoft build systems, a shared DLL will not create a .lib file unless there
 # are actually functions (etc) that get exported. 
 # To export we need a module declaration for that symbol.
@@ -24,9 +33,10 @@ GENERATE_EXPORT_HEADER(SharedLibrary
 install(FILES 
         ${CMAKE_CURRENT_LIST_DIR}/shared_exports.h
         ${CMAKE_CURRENT_LIST_DIR}/sharedlib.h
-    DESTINATION include/hello/SharedLibrary-${PROJECT_VERSION})
+    DESTINATION include/hello)
 
 install(TARGETS SharedLibrary
     # LIBRARY is suitable for shared libraries
     LIBRARY DESTINATION lib/hello/SharedLibrary-${PROJECT_VERSION}
 )
+
