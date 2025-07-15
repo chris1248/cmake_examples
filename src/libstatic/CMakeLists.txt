@@ -9,7 +9,6 @@ set(STATIC_LIB_FILES
 add_library(StaticLibrary STATIC ${STATIC_LIB_FILES})
 
 install(TARGETS StaticLibrary
+    # ARCHIVE is suitable for static libraries
     ARCHIVE DESTINATION lib/hello/StaticLibrary-${PROJECT_VERSION}
-    LIBRARY DESTINATION lib/hello/StaticLibrary-${PROJECT_VERSION}
-    RUNTIME DESTINATION lib/hello/StaticLibrary-${PROJECT_VERSION}
 )

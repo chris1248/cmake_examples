@@ -37,17 +37,6 @@ add_subdirectory(src/libshared)
 add_subdirectory(src/main)
 
 
-# This creates a cmake target called 'INSTALL' that can be invoked by cmake.exe.
-# In CMake an 'install' is simply an overly fancy copy mechanism.
-# These instructions will direct cmake to create the file bin/CMakeFiles/INSTALL.vcxproj.
-# To get cmake to actually copy the file over, or to invoke the 'install' target -- call cmake with 
-# the '--target install' option.
-install(TARGETS hello DESTINATION bin)
-# install(TARGETS SharedLibrary
-#         RUNTIME DESTINATION bin
-#         LIBRARY DESTINATION /usr/lib
-#         ARCHIVE DESTINATION lib/helloSharedLib)
-
 configure_package_config_file(${CMAKE_SOURCE_DIR}/src/hello.cmake.in
     ${CMAKE_SOURCE_DIR}/src/hello.cmake
     INSTALL_DESTINATION ${LIB_INSTALL_DIR}/hello/cmake)

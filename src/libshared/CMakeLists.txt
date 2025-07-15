@@ -25,6 +25,6 @@ install(FILES ${PROJECT_SOURCE_DIR}/src/libshared/shared_exports.h
     DESTINATION include/hello/SharedLibrary-${PROJECT_VERSION})
 
 install(TARGETS SharedLibrary
-    RUNTIME DESTINATION bin
+    # LIBRARY is suitable for shared libraries
     LIBRARY DESTINATION lib/hello/SharedLibrary-${PROJECT_VERSION}
-    ARCHIVE DESTINATION lib/hello/SharedLibrary-${PROJECT_VERSION})
+)

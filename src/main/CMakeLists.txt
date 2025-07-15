@@ -20,3 +20,5 @@ set(SOURCES
 )
 
 add_executable(hello ${SOURCES})
+
+install(TARGETS hello DESTINATION bin)
