@@ -1,2 +1,4 @@
 bin/*
 src/libshared/shared_exports.h
+build/*
+src/hello.cmake

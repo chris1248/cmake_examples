@@ -1,5 +1,7 @@
 # Specify the minimum version for CMake
-cmake_minimum_required(VERSION 3.20.1)
+cmake_minimum_required(VERSION 3.22.0)
+
+include(CMakePackageConfigHelpers)
 
 # Project's name
 project(hello VERSION 0.1.0 LANGUAGES CXX)
@@ -41,10 +43,14 @@ add_subdirectory(src/main)
 # To get cmake to actually copy the file over, or to invoke the 'install' target -- call cmake with 
 # the '--target install' option.
 install(TARGETS hello DESTINATION bin)
-install(TARGETS SharedLibrary
-        RUNTIME DESTINATION bin
-        LIBRARY DESTINATION /usr/lib
-        ARCHIVE DESTINATION lib/helloSharedLib)
+# install(TARGETS SharedLibrary
+#         RUNTIME DESTINATION bin
+#         LIBRARY DESTINATION /usr/lib
+#         ARCHIVE DESTINATION lib/helloSharedLib)
+
+configure_package_config_file(${CMAKE_SOURCE_DIR}/src/hello.cmake.in
+    ${CMAKE_SOURCE_DIR}/src/hello.cmake
+    INSTALL_DESTINATION ${LIB_INSTALL_DIR}/hello/cmake)
 
 
 set(CPACK_GENERATOR DEB)

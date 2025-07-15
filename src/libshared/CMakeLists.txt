@@ -20,3 +20,11 @@ include(GenerateExportHeader)
 GENERATE_EXPORT_HEADER(SharedLibrary
     EXPORT_MACRO_NAME SHARED_EXPORTS
     EXPORT_FILE_NAME ${PROJECT_SOURCE_DIR}/src/libshared/shared_exports.h)
+
+install(FILES ${PROJECT_SOURCE_DIR}/src/libshared/shared_exports.h
+    DESTINATION include/hello/SharedLibrary-${PROJECT_VERSION})
+
+install(TARGETS SharedLibrary
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib/hello/SharedLibrary-${PROJECT_VERSION}
+    ARCHIVE DESTINATION lib/hello/SharedLibrary-${PROJECT_VERSION})
