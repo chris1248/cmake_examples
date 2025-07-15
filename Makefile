@@ -1,5 +1,5 @@
 MAKEFLAGS += --no-print-directory
-PREFIX_TEST_DIR?=${HOME}/Downloads/hello
+PREFIX_TEST_DIR?=${HOME}/Downloads/test_installs
 
 generate:
 	@cmake -S . -B build

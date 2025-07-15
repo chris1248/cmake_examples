@@ -36,10 +36,18 @@ add_subdirectory(src/libstatic)
 add_subdirectory(src/libshared)
 add_subdirectory(src/main)
 
+set(HELLO_SHAREDLIB_INCLUDE_DIR "include/hello")
+set(HELLO_STATICLIB_INCLUDE_DIR "include/hello")
 
 configure_package_config_file(${CMAKE_SOURCE_DIR}/src/hello.cmake.in
     ${CMAKE_SOURCE_DIR}/src/hello.cmake
-    INSTALL_DESTINATION lib/hello/cmake)
+    PATH_VARS
+        HELLO_SHAREDLIB_INCLUDE_DIR
+        HELLO_STATICLIB_INCLUDE_DIR
+    INSTALL_DESTINATION lib/hello/cmake
+    NO_SET_AND_CHECK_MACRO
+    NO_CHECK_REQUIRED_COMPONENTS_MACRO
+)
 
 install(FILES ${CMAKE_SOURCE_DIR}/src/hello.cmake
     DESTINATION lib/hello/cmake)
