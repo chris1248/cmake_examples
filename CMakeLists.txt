@@ -30,11 +30,13 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/exe/${CMAKE_BUILD_TYPE})
 # Set the path for all library files (*.libs)
 set(LIBRARY_OUTPUT_PATH    ${CMAKE_SOURCE_DIR}/bin/lib/${CMAKE_BUILD_TYPE})
 # --------------------------------------------------------
-
-# Each of these sub-directories is expected to have a CMakeLists.txt file in it.
+# These two properties get reused in the libraries show below. They
+# are only defined here to reduce duplication. And because it is impossible
+# to extract them from the library install targets once defined.
 set(SHARED_LIBRARY_OUTPUT_DIR lib/hello/SharedLibrary-${PROJECT_VERSION})
 set(STATIC_LIBRARY_OUTPUT_DIR lib/hello/StaticLibrary-${PROJECT_VERSION})
 
+# Each of these sub-directories is expected to have a CMakeLists.txt file in it.
 add_subdirectory(src/libstatic)
 add_subdirectory(src/libshared)
 add_subdirectory(src/main)
