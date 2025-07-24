@@ -16,9 +16,10 @@ target_include_directories(StaticLibrary
         $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
         $<INSTALL_INTERFACE:include/hello>)
 
+
 install(TARGETS StaticLibrary
     # ARCHIVE is suitable for static libraries
-    ARCHIVE DESTINATION lib/hello/StaticLibrary-${PROJECT_VERSION}
+    ARCHIVE DESTINATION ${STATIC_LIBRARY_OUTPUT_DIR}
 )
 
 install(FILES ${CMAKE_CURRENT_LIST_DIR}/staticlib.h

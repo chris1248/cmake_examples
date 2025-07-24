@@ -1,0 +1,29 @@
+@PACKAGE_INIT@
+
+# Define the installation directory
+get_filename_component(HELLO_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+get_filename_component(PACKAGE_ROOT_DIR "${HELLO_CMAKE_DIR}/../../../" ABSOLUTE)
+
+# Set include directories
+set(HELLO_INCLUDE_DIRS "@PACKAGE_HELLO_INCLUDE_DIR@")
+
+# Create imported targets for the libraries
+if(NOT TARGET hello::StaticLibrary)
+    add_library(hello::StaticLibrary STATIC IMPORTED)
+    set_target_properties(hello::StaticLibrary PROPERTIES
+        IMPORTED_LOCATION "${PACKAGE_ROOT_DIR}/@STATIC_LIBRARY_OUTPUT_DIR@/libStaticLibrary.a"
+        INTERFACE_INCLUDE_DIRECTORIES "${HELLO_INCLUDE_DIRS}"
+    )
+endif()
+
+if(NOT TARGET hello::SharedLibrary)
+    add_library(hello::SharedLibrary SHARED IMPORTED)
+    set_target_properties(hello::SharedLibrary PROPERTIES
+        IMPORTED_LOCATION "${PACKAGE_ROOT_DIR}/@SHARED_LIBRARY_OUTPUT_DIR@/libSharedLibrary.so"
+        INTERFACE_INCLUDE_DIRECTORIES "${HELLO_INCLUDE_DIRS}"
+    )
+endif()
+
+# Set variables for compatibility
+set(HELLO_LIBRARIES "@HELLO_LIBRARIES@")
+set(HELLO_FOUND TRUE)

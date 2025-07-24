@@ -35,8 +35,9 @@ install(FILES
         ${CMAKE_CURRENT_LIST_DIR}/sharedlib.h
     DESTINATION include/hello)
 
+
 install(TARGETS SharedLibrary
     # LIBRARY is suitable for shared libraries
-    LIBRARY DESTINATION lib/hello/SharedLibrary-${PROJECT_VERSION}
+    LIBRARY DESTINATION ${SHARED_LIBRARY_OUTPUT_DIR}
 )
 

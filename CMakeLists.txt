@@ -32,24 +32,27 @@ set(LIBRARY_OUTPUT_PATH    ${CMAKE_SOURCE_DIR}/bin/lib/${CMAKE_BUILD_TYPE})
 # --------------------------------------------------------
 
 # Each of these sub-directories is expected to have a CMakeLists.txt file in it.
+set(SHARED_LIBRARY_OUTPUT_DIR lib/hello/SharedLibrary-${PROJECT_VERSION})
+set(STATIC_LIBRARY_OUTPUT_DIR lib/hello/StaticLibrary-${PROJECT_VERSION})
+
 add_subdirectory(src/libstatic)
 add_subdirectory(src/libshared)
 add_subdirectory(src/main)
 
-set(HELLO_SHAREDLIB_INCLUDE_DIR "include/hello")
-set(HELLO_STATICLIB_INCLUDE_DIR "include/hello")
+set(HELLO_INCLUDE_DIR "include/hello")
+set(HELLO_LIBRARIES hello::StaticLibrary hello::SharedLibrary)
 
-configure_package_config_file(${CMAKE_SOURCE_DIR}/src/hello.cmake.in
-    ${CMAKE_SOURCE_DIR}/src/hello.cmake
+
+configure_package_config_file(${CMAKE_SOURCE_DIR}/src/helloConfig.cmake.in
+    ${CMAKE_SOURCE_DIR}/src/helloConfig.cmake
     PATH_VARS
-        HELLO_SHAREDLIB_INCLUDE_DIR
-        HELLO_STATICLIB_INCLUDE_DIR
+        HELLO_INCLUDE_DIR
     INSTALL_DESTINATION lib/hello/cmake
     NO_SET_AND_CHECK_MACRO
     NO_CHECK_REQUIRED_COMPONENTS_MACRO
 )
 
-install(FILES ${CMAKE_SOURCE_DIR}/src/hello.cmake
+install(FILES ${CMAKE_SOURCE_DIR}/src/helloConfig.cmake
     DESTINATION lib/hello/cmake)
 
 

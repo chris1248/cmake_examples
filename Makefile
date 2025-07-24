@@ -13,6 +13,8 @@ install: binaries
 package: binaries
 	@echo "-------------------------------------------------------"
 	@cmake --build build --target package
+	@echo "-------------------------------------------------------"
+	@echo "Dump the contents of the package:"
 	@dpkg-deb --contents bin/packages/hello-0.1.0.deb
 
 install-package: package
