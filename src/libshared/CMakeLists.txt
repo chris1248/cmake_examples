@@ -37,7 +37,13 @@ install(FILES
 
 
 install(TARGETS SharedLibrary
+    EXPORT libSharedLibrary # <<-- This name here
     # LIBRARY is suitable for shared libraries
     LIBRARY DESTINATION ${SHARED_LIBRARY_OUTPUT_DIR}
 )
 
+install(
+    EXPORT libSharedLibrary # <<-- Must match the EXPORT name above
+    NAMESPACE hello::
+    DESTINATION ${SHARED_LIBRARY_OUTPUT_DIR}
+)

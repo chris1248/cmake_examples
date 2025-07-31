@@ -18,10 +18,17 @@ target_include_directories(StaticLibrary
 
 
 install(TARGETS StaticLibrary
+    EXPORT libStaticLibrary # <<-- This name here
     # ARCHIVE is suitable for static libraries
     ARCHIVE DESTINATION ${STATIC_LIBRARY_OUTPUT_DIR}
 )
 
 install(FILES ${CMAKE_CURRENT_LIST_DIR}/staticlib.h
     DESTINATION include/hello
+)
+
+install(
+    EXPORT libStaticLibrary # <<-- Must match the EXPORT name above
+    NAMESPACE hello::
+    DESTINATION ${STATIC_LIBRARY_OUTPUT_DIR}
 )
