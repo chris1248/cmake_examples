@@ -15,8 +15,8 @@ targets:
       - cmake --build build --target all
       - echo "Run the application"
       - echo 5 | ./bin/exe/Release/hello
-      - echo "Author Name: $AUTHOR_NAME"
-      - echo "Favorite Book: $FAVORITE_BOOK"
+      - echo "Author Name is $AUTHOR_NAME"
+      - echo "Favorite Book is $FAVORITE_BOOK"
     teardown:
       - rm -rf build
     runner_tags:
