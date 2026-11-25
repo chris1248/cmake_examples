@@ -23,3 +23,17 @@ targets:
       - dev
       - x86
       - local
+
+  test:
+    depends_on:
+      - build
+    setup:
+      - cmake -S . -B build
+    execute:
+      - ctest --test-dir build
+    teardown:
+      - rm -rf build
+    runner_tags:
+      - dev
+      - x86
+      - local
