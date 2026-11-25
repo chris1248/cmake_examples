@@ -1,8 +1,8 @@
 version: 1
 
 environment:
-  CI_PROJECT_NAME: cmake_examples
-  CI_COMMIT_REF_NAME: master
+  AUTHOR_NAME: "Mr Fluffy"
+  FAVORITE_BOOK: "Bible"
 
 targets:
   build:
@@ -13,8 +13,8 @@ targets:
       - cmake -S . -B build
     execute:
       - cmake --build build --target all
-      - echo "Project Name: $CI_PROJECT_NAME"
-      - echo "Branch Name: $CI_COMMIT_REF_NAME"
+      - echo "Author Name: $AUTHOR_NAME"
+      - echo "Favorite Book: $FAVORITE_BOOK"
     teardown:
       - rm -rf build
     runner_tags:
