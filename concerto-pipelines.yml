@@ -1,0 +1,23 @@
+version: 1
+
+environment:
+  CI_PROJECT_NAME: cmake_examples
+  CI_COMMIT_REF_NAME: master
+
+targets:
+  build:
+    # Each target gets its own fresh checkout, so the configure step lives in
+    # this target's setup phase. Files it writes (the build/ folder) carry over
+    # to execute, and a failed configure skips the build.
+    setup:
+      - cmake -S . -B build
+    execute:
+      - cmake --build build --target all
+      - echo "Project Name: $CI_PROJECT_NAME"
+      - echo "Branch Name: $CI_COMMIT_REF_NAME"
+    teardown:
+      - rm -rf build
+    runner_tags:
+      - dev
+      - x86
+      - local
