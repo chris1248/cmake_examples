@@ -13,6 +13,8 @@ targets:
       - cmake -S . -B build
     execute:
       - cmake --build build --target all
+      - echo "Run the application"
+      - echo 5 | ./bin/exe/Release/hello
       - echo "Author Name: $AUTHOR_NAME"
       - echo "Favorite Book: $FAVORITE_BOOK"
     teardown:
